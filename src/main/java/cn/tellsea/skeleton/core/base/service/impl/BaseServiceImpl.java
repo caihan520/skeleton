@@ -1,7 +1,7 @@
-package cn.tellsea.core.base.service.impl;
+package cn.tellsea.skeleton.core.base.service.impl;
 
-import cn.tellsea.core.base.mapper.MyMapper;
-import cn.tellsea.core.base.service.BaseService;
+import cn.tellsea.skeleton.core.base.mapper.MyMapper;
+import cn.tellsea.skeleton.core.base.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;

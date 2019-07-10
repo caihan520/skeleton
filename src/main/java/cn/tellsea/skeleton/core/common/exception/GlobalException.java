@@ -1,4 +1,4 @@
-package cn.tellsea.core.common.exception;
+package cn.tellsea.skeleton.core.common.exception;
 
 import lombok.Getter;
 import lombok.Setter;

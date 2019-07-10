@@ -1,4 +1,4 @@
-package cn.tellsea.core.common.enums;
+package cn.tellsea.skeleton.core.common.enums;
 
 import lombok.Getter;
 import lombok.Setter;

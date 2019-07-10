@@ -1,4 +1,4 @@
-package cn.tellsea.core.base.service;
+package cn.tellsea.skeleton.core.base.service;
 
 import java.util.List;
 

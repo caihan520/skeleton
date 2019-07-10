@@ -1,6 +1,6 @@
-package cn.tellsea.core.common.dto;
+package cn.tellsea.skeleton.core.common.dto;
 
-import cn.tellsea.core.common.enums.StatusEnums;
+import cn.tellsea.skeleton.core.common.enums.StatusEnums;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,6 +1,6 @@
 package ${basePackageService};
 
-import ${basePackage}.base.service.BaseService;
+import ${basePackage}.core.base.service.BaseService;
 import ${basePackage}.entity.${modelNameUpperCamel};
 
 /**

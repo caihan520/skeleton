@@ -1,6 +1,6 @@
-package cn.tellsea.core.gencode;
+package cn.tellsea.skeleton.core.gencode;
 
-import cn.tellsea.core.common.constant.GenCodeConstant;
+import cn.tellsea.skeleton.core.common.constant.GenCodeConstant;
 import com.google.common.base.CaseFormat;
 import freemarker.template.TemplateExceptionHandler;
 import org.mybatis.generator.api.MyBatisGenerator;
@@ -72,8 +72,8 @@ public class CodeGenerator {
      */
     public static void genCode(String tableName) {
         genModelAndMapper(tableName);
-//        genService(tableName);
-//        genController(tableName);
+        genService(tableName);
+        genController(tableName);
     }
 
     public static void genModelAndMapper(String tableName) {

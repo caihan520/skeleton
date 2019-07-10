@@ -1,9 +1,9 @@
-package cn.tellsea.core.common.constant;
+package cn.tellsea.skeleton.core.common.constant;
 
 public class GenCodeConstant {
 
     // 项目基础包名称
-    public static final String BASE_PACKAGE = "cn.tellsea.skeleton";
+    public static final String BASE_PACKAGE = "cn.tellsea.skeleton.business";
 
     // Model所在包
     public static final String MODEL_PACKAGE = BASE_PACKAGE + ".entity";
@@ -21,6 +21,6 @@ public class GenCodeConstant {
     public static final String CONTROLLER_PACKAGE = BASE_PACKAGE + ".controller";
 
     // Mapper插件基础接口的完全限定名
-    public static final String MAPPER_INTERFACE_REFERENCE = BASE_PACKAGE + ".base.mapper.MyMapper";
+    public static final String MAPPER_INTERFACE_REFERENCE = "cn.tellsea.core.base.mapper.MyMapper";
 
 }

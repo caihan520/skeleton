@@ -1,8 +1,8 @@
-package cn.tellsea.core.common.handle;
+package cn.tellsea.skeleton.core.common.handle;
 
-import cn.tellsea.core.common.dto.ResponseResult;
-import cn.tellsea.core.common.enums.StatusEnums;
-import cn.tellsea.core.common.exception.GlobalException;
+import cn.tellsea.skeleton.core.common.dto.ResponseResult;
+import cn.tellsea.skeleton.core.common.enums.StatusEnums;
+import cn.tellsea.skeleton.core.common.exception.GlobalException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ExceptionHandler;

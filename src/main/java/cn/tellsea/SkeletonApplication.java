@@ -4,7 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
  /**
-  * 骨架启动类
+  * 项目启动类
   *
   * @author: tellsea
   * @date: 2019/7/10

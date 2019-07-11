@@ -133,7 +133,7 @@ public class CodeGenerator {
             String modelNameUpperCamel = tableNameConvertUpperCamel(tableName);
             data.put("modelNameUpperCamel", modelNameUpperCamel);
             data.put("modelNameLowerCamel", CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, modelNameUpperCamel));
-            data.put("basePackage", GenCodeConstant.BASE_PACKAGE);
+            data.put("basePackage", GenCodeConstant.BUSINESS_BASE_PACKAGE);
             data.put("basePackageService", GenCodeConstant.SERVICE_PACKAGE);
             data.put("basePackageServiceImpl", GenCodeConstant.SERVICE_IMPL_PACKAGE);
             data.put("basePackageModel", GenCodeConstant.MODEL_PACKAGE);
@@ -167,7 +167,7 @@ public class CodeGenerator {
             data.put("baseRequestMapping", CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, modelNameUpperCamel));
             data.put("modelNameUpperCamel", modelNameUpperCamel);
             data.put("modelNameLowerCamel", CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, modelNameUpperCamel));
-            data.put("basePackage", GenCodeConstant.BASE_PACKAGE);
+            data.put("basePackage", GenCodeConstant.BUSINESS_BASE_PACKAGE);
             data.put("basePackageController", GenCodeConstant.CONTROLLER_PACKAGE);
             data.put("basePackageService", GenCodeConstant.SERVICE_PACKAGE);
             data.put("basePackageModel", GenCodeConstant.MODEL_PACKAGE);

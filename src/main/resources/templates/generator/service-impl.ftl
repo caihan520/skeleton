@@ -1,13 +1,13 @@
 package ${basePackageServiceImpl};
 
 import ${basePackageModel}.${modelNameUpperCamel};
-import ${basePackage}.core.base.service.impl.BaseServiceImpl;
+import ${baseSkeletonPackage}.base.service.impl.BaseServiceImpl;
 import ${basePackageService}.${modelNameUpperCamel}Service;
-import ${basePackageDao}.${modelNameUpperCamel}Mapper;
 import org.springframework.stereotype.Service;
 
 /**
-* @Description: ${modelNameUpperCamel} 接口实现类
+* ${modelNameUpperCamel} 接口实现类
+*
 * @author ${author}
 * @date ${date}
 */

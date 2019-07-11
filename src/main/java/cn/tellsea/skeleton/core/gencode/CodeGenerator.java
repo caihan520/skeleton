@@ -22,7 +22,7 @@ import java.util.*;
 public class CodeGenerator {
 
     // JDBC配置，请修改为你项目的实际配置
-    private static final String JDBC_URL = "jdbc:mysql://47.107.171.232:3306/boot_shiro";
+    private static final String JDBC_URL = "jdbc:mysql://47.107.171.232:3306/skeleton";
     private static final String JDBC_USERNAME = "root";
     private static final String JDBC_PASSWORD = "Root123!@#";
     private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
@@ -36,7 +36,6 @@ public class CodeGenerator {
     private static final String PACKAGE_PATH_SERVICE_IMPL = packageConvertPath(GenCodeConstant.SERVICE_IMPL_PACKAGE);
     // 生成的Controller存放路径
     private static final String PACKAGE_PATH_CONTROLLER = packageConvertPath(GenCodeConstant.CONTROLLER_PACKAGE);
-
     // @author
     private static final String AUTHOR = "tellsea";
     // @date
@@ -48,8 +47,7 @@ public class CodeGenerator {
      * @param args
      */
     public static void main(String[] args) {
-//        genCode("tb_user", "tb_role", "tb_menu");
-        genCode("tb_user");
+        genCode("user_info");
     }
 
     /**
@@ -74,6 +72,71 @@ public class CodeGenerator {
         genModelAndMapper(tableName);
         genService(tableName);
         genController(tableName);
+    }
+
+    public static void genController(String tableName) {
+        try {
+            freemarker.template.Configuration cfg = getConfiguration();
+            Map<String, Object> data = new HashMap<>();
+            data.put("date", DATE);
+            data.put("author", AUTHOR);
+            String modelNameUpperCamel = tableNameConvertUpperCamel(tableName);
+            data.put("baseRequestMapping", CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, modelNameUpperCamel));
+            data.put("modelNameUpperCamel", modelNameUpperCamel);
+            data.put("modelNameLowerCamel", CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, modelNameUpperCamel));
+            data.put("basePackage", GenCodeConstant.BASE_PACKAGE);
+            data.put("baseBusinessPackage", GenCodeConstant.BASE_BUSINESS_PACKAGE);
+            data.put("baseSkeletonPackage", GenCodeConstant.BASE_SKELETON_PACKAGE);
+            data.put("basePackageController", GenCodeConstant.CONTROLLER_PACKAGE);
+            data.put("basePackageService", GenCodeConstant.SERVICE_PACKAGE);
+            data.put("basePackageModel", GenCodeConstant.MODEL_PACKAGE);
+
+            File file = new File(JAVA_PATH + PACKAGE_PATH_CONTROLLER + modelNameUpperCamel + "Controller.java");
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+            }
+            cfg.getTemplate("controller.ftl").process(data, new FileWriter(file));
+
+            System.out.println(modelNameUpperCamel + "Controller.java 生成成功");
+        } catch (Exception e) {
+            throw new RuntimeException("生成Controller失败", e);
+        }
+    }
+
+    public static void genService(String tableName) {
+        try {
+            freemarker.template.Configuration cfg = getConfiguration();
+            //模板所需要的参数
+            Map<String, Object> data = new HashMap<>();
+            data.put("date", DATE);
+            data.put("author", AUTHOR);
+            String modelNameUpperCamel = tableNameConvertUpperCamel(tableName);
+            data.put("modelNameUpperCamel", modelNameUpperCamel);
+            data.put("modelNameLowerCamel", CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, modelNameUpperCamel));
+            data.put("basePackage", GenCodeConstant.BASE_BUSINESS_PACKAGE);
+            data.put("baseBusinessPackage", GenCodeConstant.BASE_BUSINESS_PACKAGE);
+            data.put("baseSkeletonPackage", GenCodeConstant.BASE_SKELETON_PACKAGE);
+            data.put("basePackageService", GenCodeConstant.SERVICE_PACKAGE);
+            data.put("basePackageServiceImpl", GenCodeConstant.SERVICE_IMPL_PACKAGE);
+            data.put("basePackageModel", GenCodeConstant.MODEL_PACKAGE);
+            data.put("basePackageDao", GenCodeConstant.MAPPER_PACKAGE);
+
+            File file = new File(JAVA_PATH + PACKAGE_PATH_SERVICE + modelNameUpperCamel + "Service.java");
+            if (!file.getParentFile().exists()) {
+                file.getParentFile().mkdirs();
+            }
+            cfg.getTemplate("service.ftl").process(data, new FileWriter(file));
+            System.out.println(modelNameUpperCamel + "Service.java 生成成功");
+
+            File file1 = new File(JAVA_PATH + PACKAGE_PATH_SERVICE_IMPL + modelNameUpperCamel + "ServiceImpl.java");
+            if (!file1.getParentFile().exists()) {
+                file1.getParentFile().mkdirs();
+            }
+            cfg.getTemplate("service-impl.ftl").process(data, new FileWriter(file1));
+            System.out.println(modelNameUpperCamel + "ServiceImpl.java 生成成功");
+        } catch (Exception e) {
+            throw new RuntimeException("生成Service失败", e);
+        }
     }
 
     public static void genModelAndMapper(String tableName) {
@@ -121,68 +184,6 @@ public class CodeGenerator {
         System.out.println(modelName + ".java 生成成功");
         System.out.println(modelName + "Mapper.java 生成成功");
         System.out.println(modelName + "Mapper.xml 生成成功");
-    }
-
-    public static void genService(String tableName) {
-        try {
-            freemarker.template.Configuration cfg = getConfiguration();
-            //模板所需要的参数
-            Map<String, Object> data = new HashMap<>();
-            data.put("date", DATE);
-            data.put("author", AUTHOR);
-            String modelNameUpperCamel = tableNameConvertUpperCamel(tableName);
-            data.put("modelNameUpperCamel", modelNameUpperCamel);
-            data.put("modelNameLowerCamel", CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, modelNameUpperCamel));
-            data.put("basePackage", GenCodeConstant.BUSINESS_BASE_PACKAGE);
-            data.put("basePackageService", GenCodeConstant.SERVICE_PACKAGE);
-            data.put("basePackageServiceImpl", GenCodeConstant.SERVICE_IMPL_PACKAGE);
-            data.put("basePackageModel", GenCodeConstant.MODEL_PACKAGE);
-            data.put("basePackageDao", GenCodeConstant.MAPPER_PACKAGE);
-
-            File file = new File(JAVA_PATH + PACKAGE_PATH_SERVICE + modelNameUpperCamel + "Service.java");
-            if (!file.getParentFile().exists()) {
-                file.getParentFile().mkdirs();
-            }
-            cfg.getTemplate("service.ftl").process(data, new FileWriter(file));
-            System.out.println(modelNameUpperCamel + "Service.java 生成成功");
-
-            File file1 = new File(JAVA_PATH + PACKAGE_PATH_SERVICE_IMPL + modelNameUpperCamel + "ServiceImpl.java");
-            if (!file1.getParentFile().exists()) {
-                file1.getParentFile().mkdirs();
-            }
-            cfg.getTemplate("service-impl.ftl").process(data, new FileWriter(file1));
-            System.out.println(modelNameUpperCamel + "ServiceImpl.java 生成成功");
-        } catch (Exception e) {
-            throw new RuntimeException("生成Service失败", e);
-        }
-    }
-
-    public static void genController(String tableName) {
-        try {
-            freemarker.template.Configuration cfg = getConfiguration();
-            Map<String, Object> data = new HashMap<>();
-            data.put("date", DATE);
-            data.put("author", AUTHOR);
-            String modelNameUpperCamel = tableNameConvertUpperCamel(tableName);
-            data.put("baseRequestMapping", CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, modelNameUpperCamel));
-            data.put("modelNameUpperCamel", modelNameUpperCamel);
-            data.put("modelNameLowerCamel", CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_CAMEL, modelNameUpperCamel));
-            data.put("basePackage", GenCodeConstant.BUSINESS_BASE_PACKAGE);
-            data.put("basePackageController", GenCodeConstant.CONTROLLER_PACKAGE);
-            data.put("basePackageService", GenCodeConstant.SERVICE_PACKAGE);
-            data.put("basePackageModel", GenCodeConstant.MODEL_PACKAGE);
-
-            File file = new File(JAVA_PATH + PACKAGE_PATH_CONTROLLER + modelNameUpperCamel + "Controller.java");
-            if (!file.getParentFile().exists()) {
-                file.getParentFile().mkdirs();
-            }
-            cfg.getTemplate("controller.ftl").process(data, new FileWriter(file));
-
-            System.out.println(modelNameUpperCamel + "Controller.java 生成成功");
-        } catch (Exception e) {
-            throw new RuntimeException("生成Controller失败", e);
-        }
-
     }
 
     private static Context getContext() {

@@ -1,10 +1,11 @@
 package ${basePackageService};
 
-import ${basePackage}.core.base.service.BaseService;
-import ${basePackage}.entity.${modelNameUpperCamel};
+import ${baseSkeletonPackage}.base.service.BaseService;
+import ${baseBusinessPackage}.entity.${modelNameUpperCamel};
 
 /**
-* @Description: ${modelNameUpperCamel} 接口
+* ${modelNameUpperCamel} 接口
+*
 * @author ${author}
 * @date ${date}
 */

@@ -1,12 +1,13 @@
 package ${basePackageController};
 
 import ${basePackage}.core.base.controller.BaseController;
-import ${basePackage}.entity.${modelNameUpperCamel};
+import ${baseBusinessPackage}.entity.${modelNameUpperCamel};
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
-* @Description: ${modelNameUpperCamel} 控制层
+* ${modelNameUpperCamel} 控制层
+*
 * @author ${author}
 * @date ${date}
 */

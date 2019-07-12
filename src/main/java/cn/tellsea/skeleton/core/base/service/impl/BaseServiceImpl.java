@@ -1,5 +1,6 @@
 package cn.tellsea.skeleton.core.base.service.impl;
 
+import cn.tellsea.skeleton.business.entity.UserInfo;
 import cn.tellsea.skeleton.core.base.mapper.MyMapper;
 import cn.tellsea.skeleton.core.base.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         mapper.selectOne(null);
         mapper.selectOneByExample(null);
         // 查询多个
+        UserInfo userInfo = new UserInfo();
         mapper.select(null);
         mapper.selectAll();
         mapper.selectByExample(null);

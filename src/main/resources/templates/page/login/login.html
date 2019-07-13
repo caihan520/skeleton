@@ -3,7 +3,7 @@
 <head>
     <div th:replace="/common/head"></div>
 </head>
-<body>
+<body style="background-image: url('/assets/images/bg_login.jpg')">
 
 <div class="unix-login">
     <div class="container-fluid">
@@ -11,7 +11,7 @@
             <div class="col-lg-4">
                 <div class="login-content">
                     <div class="login-form">
-                        <h4>Shiro 权限管理系统</h4>
+                        <h4>Skeleton 骨架系统</h4>
                         <form action="/login" method="post">
                             <div class="form-group">
                                 <label>账 户</label>
@@ -23,7 +23,9 @@
                             </div>
                             <div class="form-group">
                                 <label>验证码</label>
-                                <input type="text" class="form-control" name="captcha"/><img alt="验证码" th:src="@{/Captcha.jpg}" title="点击更换" id="captcha_img"/>
+                                <input type="text" class="form-control" name="captcha"/>
+                                <br>
+                                <img alt="验证码" th:src="@{/Captcha.jpg}" title="点击更换" id="captcha_img" onclick="refreshCaptcha()"/>
                                 <a href="javascript:void(0)" onclick="javascript:refreshCaptcha()">(看不清，换一张)</a><br/>
                             </div>
                             <div class="checkbox">
@@ -31,7 +33,7 @@
                                     <input type="checkbox" name="rememberMe"> 记住我
                                 </label>
                             </div>
-                            <button type="button" class="btn btn-primary btn-flat m-b-30 m-t-30" onclick="login()">Sign in</button>
+                            <button type="button" class="btn btn-primary btn-flat m-b-30 m-t-30" onclick="login()">登 录</button>
                         </form>
                     </div>
                 </div>
@@ -95,10 +97,10 @@
             dataType: "json",
             success: function (data) {
                 console.log(data);
-                if (data.code == 1) {
+                if (data.code == 200) {
                     window.location.href = "/";
                 } else {
-                    $("input[name='username']").val(data.content.username);
+                    $("input[name='username']").val(data.data);
                     toastr.error(data.message);
                 }
             },

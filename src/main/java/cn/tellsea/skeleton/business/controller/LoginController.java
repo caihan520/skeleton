@@ -94,7 +94,7 @@ public class LoginController {
             OperatingSystem operatingSystem = userAgent.getOperatingSystem();
             loginLog.setDevice(browser.getName() + " -- " + operatingSystem.getName());
             loginLogService.insert(loginLog);
-            return ResponseResult.success();
+            return ResponseResult.success(username);
 
         } catch (DisabledAccountException e) {
             return ResponseResult.error(StatusEnums.UNAUTHORIZED);

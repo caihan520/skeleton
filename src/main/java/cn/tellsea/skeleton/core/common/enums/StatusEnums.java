@@ -22,7 +22,7 @@ public enum StatusEnums {
     NOT_FOUND(404, "请求资源不存在"),
     USER_NOT_FOUND(500, "用户不存在"),
     PARAM_NOT_NULL(500, "参数不能为空"),
-    SERVER_ERROR(500, "数据处理异常"),
+    SERVER_ERROR(500, "服务器异常"),
     CAPTCHA_ERROR(500, "验证码错误"),
     PASSWORD_ERROR(500, "密码错误"),
     SERVER_UNAVAILABLE(503, "服务器异常，请稍后重试"),

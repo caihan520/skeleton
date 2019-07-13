@@ -3,7 +3,6 @@ package cn.tellsea.skeleton.core.common.dto;
 import cn.tellsea.skeleton.core.common.enums.StatusEnums;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * 全局返回结果集
@@ -13,7 +12,6 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class ResponseResult {
 
     private Integer code;
@@ -48,7 +46,7 @@ public class ResponseResult {
         return new ResponseResult(StatusEnums.SERVER_ERROR);
     }
 
-    public static ResponseResult error(Object data) {
-        return new ResponseResult(StatusEnums.SERVER_ERROR, data);
+    public static ResponseResult error(StatusEnums enums) {
+        return new ResponseResult(enums.getCode(), enums.getInfo());
     }
 }

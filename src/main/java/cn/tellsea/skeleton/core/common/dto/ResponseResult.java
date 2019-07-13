@@ -47,4 +47,8 @@ public class ResponseResult {
     public static ResponseResult error() {
         return new ResponseResult(StatusEnums.SERVER_ERROR);
     }
+
+    public static ResponseResult error(Object data) {
+        return new ResponseResult(StatusEnums.SERVER_ERROR, data);
+    }
 }

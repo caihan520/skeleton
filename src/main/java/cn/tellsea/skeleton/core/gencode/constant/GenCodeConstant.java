@@ -1,4 +1,4 @@
-package cn.tellsea.skeleton.core.common.constant;
+package cn.tellsea.skeleton.core.gencode.constant;
 
 /**
  * 代码生成器常量

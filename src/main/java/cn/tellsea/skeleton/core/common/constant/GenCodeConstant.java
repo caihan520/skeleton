@@ -3,8 +3,8 @@ package cn.tellsea.skeleton.core.common.constant;
 /**
  * 代码生成器常量
  *
- * @author tellsea
- * @date 2019/07/11 11:47
+ * @author Tellsea
+ * @Description Created on 2019/7/13
  */
 public class GenCodeConstant {
 

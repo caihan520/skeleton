@@ -8,9 +8,9 @@ import tk.mybatis.mapper.common.ids.DeleteByIdsMapper;
 /**
  * 自定义通用mapper需要继承的接口
  *
- * @author tellsea
- * @date 2019/07/11 11:47
  * @param <T> 不能为空
+ * @author Tellsea
+ * @Description Created on 2019/7/13
  */
 public interface MyMapper<T> extends Mapper<T>, DeleteByIdsMapper<T>, MySqlMapper<T>, BatchMapper<T> {
 

@@ -5,11 +5,11 @@ import org.apache.ibatis.session.RowBounds;
 import java.util.List;
 
 /**
+ * 基类Service接口
  *
- *
- * @author tellsea
- * @date 2019/07/11 11:47
  * @param <T> 不能为空
+ * @author Tellsea
+ * @Description Created on 2019/7/13
  */
 public interface BaseService<T> {
 

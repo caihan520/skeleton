@@ -13,8 +13,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * 全局异常处理
  *
- * @author: tellsea
- * @date: 2019/7/10
+ * @author Tellsea
+ * @Description Created on 2019/7/13
  */
 @RestControllerAdvice
 @Order(value = Ordered.HIGHEST_PRECEDENCE)

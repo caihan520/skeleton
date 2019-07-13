@@ -7,7 +7,7 @@ import ${baseBusinessPackage}.entity.${modelNameUpperCamel};
 * ${modelNameUpperCamel} 接口
 *
 * @author ${author}
-* @date ${date}
+* @Description Created on ${date}
 */
 public interface ${modelNameUpperCamel}Service extends BaseService<${modelNameUpperCamel}> {
 

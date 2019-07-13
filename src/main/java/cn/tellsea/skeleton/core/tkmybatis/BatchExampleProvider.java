@@ -12,7 +12,8 @@ import java.util.Set;
 /**
  * 批量更新的SqlProvider
  *
- * @author sunchangtan
+ * @author Tellsea
+ * @Description Created on 2019/7/13
  */
 public class BatchExampleProvider extends ExampleProvider {
 

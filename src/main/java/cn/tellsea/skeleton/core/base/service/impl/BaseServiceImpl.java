@@ -15,9 +15,9 @@ import java.util.List;
 /**
  * 基类接口实现类
  *
- * @author tellsea
- * @date 2019/7/12
  * @param <T> 不能为空
+ * @author Tellsea
+ * @Description Created on 2019/7/13
  */
 public class BaseServiceImpl<T> implements BaseService<T> {
 

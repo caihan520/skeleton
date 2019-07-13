@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="/common/head"></div>
+</head>
+
+<body>
+
+<div th:replace="/common/sidebar"></div>
+
+<div th:replace="/common/header"></div>
+
+<div class="content-wrap">
+    <div class="main">
+        <iframe src="/console/data" id="main-iframe" name="main-iframe" width="100%" height="100%" frameborder="0" scrolling="no"
+                onload="resetIframe()"></iframe>
+    </div>
+</div>
+
+</body>
+<div th:replace="/common/js"></div>
+<script>
+    function resetIframe() {
+        // session 空，则刷新父页面
+        // var activeUser = [[${session.a}]];
+
+        // 重置高度
+        var iframe = document.getElementById("main-iframe");
+        iframe.height = 0; // 只有先设置原来的iframe高度为0，之前的iframe高度才不会对现在的设置有影响
+        var bHeight = iframe.contentWindow.document.body.scrollHeight;
+        var dHeight = iframe.contentWindow.document.documentElement.scrollHeight;
+        var height = Math.max(bHeight, dHeight);
+        var screenHeight = screen.availHeight; // 屏幕高度
+        iframe.height = height > screenHeight ? height : (screenHeight - 185);
+
+        // 清除背景颜色
+        var body = iframe.contentWindow.document.body;
+        body.style.background = "none";
+    }
+</script>
+</html>

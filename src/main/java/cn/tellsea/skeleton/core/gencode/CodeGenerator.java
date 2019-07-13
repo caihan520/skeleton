@@ -16,8 +16,9 @@ import java.util.*;
 /**
  * 代码生成器
  *
- * @author: tellsea
- * @date: 2019/7/10
+ * @author Tellsea
+ * @Description Created on 2019/7/13
+ * 参考地址：https://blog.csdn.net/lwang_IT/article/details/89021755
  */
 public class CodeGenerator {
 
@@ -37,9 +38,9 @@ public class CodeGenerator {
     // 生成的Controller存放路径
     private static final String PACKAGE_PATH_CONTROLLER = packageConvertPath(GenCodeConstant.CONTROLLER_PACKAGE);
     // @author
-    private static final String AUTHOR = "tellsea";
+    private static final String AUTHOR = "Tellsea";
     // @date
-    private static final String DATE = new SimpleDateFormat("yyyy/MM/dd HH:mm").format(new Date());
+    private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());
 
     /**
      * genCode("输入表名");
@@ -106,7 +107,6 @@ public class CodeGenerator {
     public static void genService(String tableName) {
         try {
             freemarker.template.Configuration cfg = getConfiguration();
-            //模板所需要的参数
             Map<String, Object> data = new HashMap<>();
             data.put("date", DATE);
             data.put("author", AUTHOR);
@@ -144,18 +144,11 @@ public class CodeGenerator {
 
         JDBCConnectionConfiguration jdbcConnectionConfiguration = getJDBCConnectionConfiguration();
         context.setJdbcConnectionConfiguration(jdbcConnectionConfiguration);
-
-        PluginConfiguration pluginConfiguration = getPluginConfiguration();
-        context.addPluginConfiguration(pluginConfiguration);
-
-        JavaModelGeneratorConfiguration javaModelGeneratorConfiguration = getJavaModelGeneratorConfiguration();
-        context.setJavaModelGeneratorConfiguration(javaModelGeneratorConfiguration);
-
-        SqlMapGeneratorConfiguration sqlMapGeneratorConfiguration = getSqlMapGeneratorConfiguration();
-        context.setSqlMapGeneratorConfiguration(sqlMapGeneratorConfiguration);
-
-        JavaClientGeneratorConfiguration javaClientGeneratorConfiguration = getJavaClientGeneratorConfiguration();
-        context.setJavaClientGeneratorConfiguration(javaClientGeneratorConfiguration);
+        context.addPluginConfiguration(getPluginConfiguration());
+        context.addPluginConfiguration(getLombokPluginConfiguration());
+        context.setJavaModelGeneratorConfiguration(getJavaModelGeneratorConfiguration());
+        context.setSqlMapGeneratorConfiguration(getSqlMapGeneratorConfiguration());
+        context.setJavaClientGeneratorConfiguration(getJavaClientGeneratorConfiguration());
 
         TableConfiguration tableConfiguration = new TableConfiguration(context);
         tableConfiguration.setTableName(tableName);
@@ -168,8 +161,7 @@ public class CodeGenerator {
             Configuration config = new Configuration();
             config.addContext(context);
             config.validate();
-            boolean overwrite = true;
-            DefaultShellCallback callback = new DefaultShellCallback(overwrite);
+            DefaultShellCallback callback = new DefaultShellCallback(true);
             warnings = new ArrayList<>();
             generator = new MyBatisGenerator(config, callback, warnings);
             generator.generate(null);
@@ -208,6 +200,16 @@ public class CodeGenerator {
         PluginConfiguration pluginConfiguration = new PluginConfiguration();
         pluginConfiguration.setConfigurationType("tk.mybatis.mapper.generator.MapperPlugin");
         pluginConfiguration.addProperty("mappers", GenCodeConstant.MAPPER_INTERFACE_REFERENCE);
+        // 强制生成 @Table 和 @Column
+        pluginConfiguration.addProperty("forceAnnotation", "true");
+        // 使用数据库注释，默认 true
+        pluginConfiguration.addProperty("useMapperCommentGenerator", "true");
+        return pluginConfiguration;
+    }
+
+    private static PluginConfiguration getLombokPluginConfiguration() {
+        PluginConfiguration pluginConfiguration = new PluginConfiguration();
+        pluginConfiguration.setConfigurationType("cn.tellsea.skeleton.core.gencode.plugin.LombokPlugin");
         return pluginConfiguration;
     }
 

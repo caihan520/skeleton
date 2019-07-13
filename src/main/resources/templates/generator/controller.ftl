@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 * ${modelNameUpperCamel} 控制层
 *
 * @author ${author}
-* @date ${date}
+* @Description Created on ${date}
 */
 @Controller
 @RequestMapping("/${baseRequestMapping}")

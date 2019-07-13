@@ -9,6 +9,8 @@ import java.util.List;
  * 批量更新
  *
  * @param <T> 不能为空
+ * @author Tellsea
+ * @Description Created on 2019/7/13
  */
 @RegisterMapper
 public interface UpdateBatchByPrimaryKeySelectiveMapper<T> {

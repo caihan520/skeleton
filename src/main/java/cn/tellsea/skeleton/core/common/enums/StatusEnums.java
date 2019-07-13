@@ -6,8 +6,8 @@ import lombok.Setter;
 /**
  * 状态枚举类
  *
- * @author: tellsea
- * @date: 2019/7/10
+ * @author Tellsea
+ * @Description Created on 2019/7/13
  */
 public enum StatusEnums {
 

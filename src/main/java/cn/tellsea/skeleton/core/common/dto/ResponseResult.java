@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 /**
  * 全局返回结果集
  *
- * @author: tellsea
- * @date: 2019/7/10
+ * @author Tellsea
+ * @Description Created on 2019/7/13
  */
 @Data
 @AllArgsConstructor

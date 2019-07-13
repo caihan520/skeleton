@@ -27,25 +27,39 @@ import java.util.*;
  */
 public class CodeGeneratorConfig {
 
-    // JDBC配置，请修改为你项目的实际配置
+    /**
+     * 数据源配置
+     */
     private static final String DATABASE_NAME = "skeleton";
     private static final String JDBC_URL = "jdbc:mysql://47.107.171.232:3306/skeleton";
     private static final String JDBC_USERNAME = "root";
     private static final String JDBC_PASSWORD = "Root123!@#";
     private static final String JDBC_DIVER_CLASS_NAME = "com.mysql.jdbc.Driver";
-    // 模板位置
+    /**
+     * 模板位置
+     */
     private static final String TEMPLATE_FILE_PATH = "src/main/resources/templates/generator";
     private static final String JAVA_PATH = "src/main/java";
     private static final String RESOURCES_PATH = "src/main/resources";
-    // 生成的Service存放路径
+    /**
+     * 生成的Service存放路径
+     */
     private static final String PACKAGE_PATH_SERVICE = packageConvertPath(GenCodeConstant.SERVICE_PACKAGE);
-    // 生成的Service实现存放路径
+    /**
+     * 生成的Service实现存放路径
+     */
     private static final String PACKAGE_PATH_SERVICE_IMPL = packageConvertPath(GenCodeConstant.SERVICE_IMPL_PACKAGE);
-    // 生成的Controller存放路径
+    /**
+     * 生成的Controller存放路径
+     */
     private static final String PACKAGE_PATH_CONTROLLER = packageConvertPath(GenCodeConstant.CONTROLLER_PACKAGE);
-    // @author
+    /**
+     * author
+     */
     private static final String AUTHOR = "Tellsea";
-    // @date
+    /**
+     * date
+     */
     private static final String DATE = new SimpleDateFormat("yyyy/MM/dd").format(new Date());
 
 

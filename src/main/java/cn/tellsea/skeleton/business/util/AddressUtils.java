@@ -64,6 +64,7 @@ public class AddressUtils {
                 case DbSearcher.MEMORY_ALGORITYM:
                     method = searcher.getClass().getMethod("memorySearch", String.class);
                     break;
+                default:
             }
 
             DataBlock dataBlock = null;

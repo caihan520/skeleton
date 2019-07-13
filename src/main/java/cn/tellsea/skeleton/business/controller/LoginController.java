@@ -3,7 +3,7 @@ package cn.tellsea.skeleton.business.controller;
 import cn.tellsea.skeleton.business.entity.LoginLog;
 import cn.tellsea.skeleton.business.service.LoginLogService;
 import cn.tellsea.skeleton.business.util.AddressUtils;
-import cn.tellsea.skeleton.business.util.IPUtils;
+import cn.tellsea.skeleton.business.util.IpUtils;
 import cn.tellsea.skeleton.core.common.dto.ResponseResult;
 import cn.tellsea.skeleton.core.common.enums.StatusEnums;
 import eu.bitwalker.useragentutils.Browser;
@@ -83,7 +83,7 @@ public class LoginController {
             subject.login(token);
             // 记录日志
             LoginLog loginLog = new LoginLog();
-            String ip = IPUtils.getIpAddr(request);
+            String ip = IpUtils.getIpAddr(request);
             loginLog.setUsername(username);
             loginLog.setIp(ip);
             loginLog.setCreateTime(new Date());

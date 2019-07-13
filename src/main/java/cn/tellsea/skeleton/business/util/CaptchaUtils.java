@@ -15,21 +15,29 @@ import java.util.Random;
  */
 public class CaptchaUtils {
 
-    // 随机产生的字符串
+    /**
+     * 随机产生的字符串
+     */
     private static final String RANDOM_STRS = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
     private static final String FONT_NAME = "Fixedsys";
     private static final int FONT_SIZE = 18;
-
     private Random random = new Random();
 
-    // 图片宽
+    /**
+     * 图片宽
+     */
     private int width = 80;
-    // 图片高
+    /**
+     * 图片高
+     */
     private int height = 25;
-    // 干扰线数量
+    /**
+     * 干扰线数量
+     */
     private int lineNum = 50;
-    // 随机产生字符数量
+    /**
+     * 随机产生字符数量
+     */
     private int strNum = 4;
 
     /**

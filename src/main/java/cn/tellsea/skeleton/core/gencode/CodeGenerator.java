@@ -9,7 +9,8 @@ package cn.tellsea.skeleton.core.gencode;
 public class CodeGenerator {
 
     public static void main(String[] args) {
-        genCodeByAll();
+//        genCodeByAll();
+        genCodeByOne("dept");
     }
 
     /**

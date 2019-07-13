@@ -2,7 +2,13 @@ package cn.tellsea.skeleton.business.util;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class IPUtils {
+/**
+ * 获取IP地址工具类
+ *
+ * @author Tellsea
+ * @Description Created on 2019/7/13
+ */
+public class IpUtils {
 
     private static final String UNKNOWN = "unknown";
 

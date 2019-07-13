@@ -2,7 +2,7 @@ package cn.tellsea.skeleton.core.common.handle;
 
 import cn.tellsea.skeleton.core.common.dto.ResponseResult;
 import cn.tellsea.skeleton.core.common.enums.StatusEnums;
-import cn.tellsea.skeleton.core.common.exception.GlobalException;
+import cn.tellsea.skeleton.core.common.exception.SkeletonException;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -26,8 +26,8 @@ public class GlobalExceptionHandle {
         return new ResponseResult(StatusEnums.SERVER_ERROR);
     }
 
-    @ExceptionHandler(value = GlobalException.class)
-    public ResponseResult globalExceptionHandle(GlobalException e, HttpServletResponse response) {
+    @ExceptionHandler(value = SkeletonException.class)
+    public ResponseResult globalExceptionHandle(SkeletonException e, HttpServletResponse response) {
         e.printStackTrace();
         return new ResponseResult(response.getStatus(), e.getMessage());
     }

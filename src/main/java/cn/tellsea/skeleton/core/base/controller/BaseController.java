@@ -7,14 +7,16 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
+/**
+ * 基类控制器
+ *
+ * @author tellsea
+ * @date 2019/07/11 11:47
+ * @param <T> 不能为空
+ */
 public class BaseController<T> {
 
     @Autowired
     public BaseService<T> baseService;
 
-    @GetMapping("selectAll")
-    @ResponseBody
-    public List<T> selectAll() {
-        return baseService.selectAll();
-    }
 }

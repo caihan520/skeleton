@@ -1,48 +1,163 @@
 package cn.tellsea.skeleton.core.base.service.impl;
 
-import cn.tellsea.skeleton.business.entity.UserInfo;
 import cn.tellsea.skeleton.core.base.mapper.MyMapper;
 import cn.tellsea.skeleton.core.base.service.BaseService;
+import cn.tellsea.skeleton.core.common.enums.StatusEnums;
+import cn.tellsea.skeleton.core.common.exception.SkeletonException;
+import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.CollectionUtils;
+import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
+/**
+ * 基类接口实现类
+ *
+ * @author tellsea
+ * @date 2019/7/12
+ * @param <T> 不能为空
+ */
 public class BaseServiceImpl<T> implements BaseService<T> {
 
     @Autowired
     private MyMapper<T> mapper;
 
-    public void allApi23() {
-        // 新增
-        mapper.insert(null);
-        mapper.insertSelective(null);
-        mapper.insertList(null);
-        mapper.insertUseGeneratedKeys(null);
-        // 修改
-        mapper.updateByPrimaryKey(null);
-        mapper.updateByPrimaryKeySelective(null);
-        mapper.updateByExample(null, null);
-        mapper.updateByExampleSelective(null, null);
-        mapper.updateBatchByPrimaryKeySelective(null);
-        // 删除
-        mapper.delete(null);
-        mapper.deleteByPrimaryKey(null);
-        mapper.deleteByIds(null);
-        mapper.deleteByExample(null);
-        // 查询单个
-        mapper.selectByPrimaryKey(null);
-        mapper.selectOne(null);
-        mapper.selectOneByExample(null);
-        // 查询多个
-        UserInfo userInfo = new UserInfo();
-        mapper.select(null);
-        mapper.selectAll();
-        mapper.selectByExample(null);
-        mapper.selectByRowBounds(null, null);
-        mapper.selectByExampleAndRowBounds(null, null);
-        // 计数
-        mapper.selectCount(null);
-        mapper.selectCountByExample(null);
+    @Override
+    public void insert(T record) {
+        if (record == null) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        mapper.insert(record);
+    }
+
+    @Override
+    public void insertSelective(T record) {
+        if (record == null) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        mapper.insertSelective(record);
+    }
+
+    @Override
+    public void insertList(List<? extends T> recordList) {
+        if (CollectionUtils.isEmpty(recordList)) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        mapper.insertList(recordList);
+    }
+
+    @Override
+    public void insertUseGeneratedKeys(T record) {
+        if (record == null) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        mapper.insertUseGeneratedKeys(record);
+    }
+
+    @Override
+    public void delete(T record) {
+        if (record == null) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        mapper.delete(record);
+    }
+
+    @Override
+    public void deleteByPrimaryKey(Object key) {
+        if (ObjectUtils.isEmpty(key)) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        mapper.deleteByPrimaryKey(key);
+    }
+
+    @Override
+    public void deleteByIds(String ids) {
+        if (StringUtils.isEmpty(ids)) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        mapper.deleteByIds(ids);
+    }
+
+    @Override
+    public void deleteByExample(Object example) {
+        if (ObjectUtils.isEmpty(example)) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        mapper.deleteByExample(example);
+    }
+
+    @Override
+    public void updateByPrimaryKey(T record) {
+        if (record == null) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        mapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public void updateByPrimaryKeySelective(T record) {
+        if (record == null) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        mapper.updateByPrimaryKeySelective(record);
+    }
+
+    @Override
+    public void updateByExample(T record, Object example) {
+        if (record == null || ObjectUtils.isEmpty(example)) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        mapper.updateByExample(record, example);
+    }
+
+    @Override
+    public void updateByExampleSelective(T record, Object example) {
+        if (record == null || ObjectUtils.isEmpty(example)) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        mapper.updateByExampleSelective(record, example);
+    }
+
+    @Override
+    public void updateBatchByPrimaryKeySelective(List<? extends T> recordList) {
+        if (CollectionUtils.isEmpty(recordList)) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        mapper.updateBatchByPrimaryKeySelective(recordList);
+    }
+
+    @Override
+    public T selectByPrimaryKey(Object key) {
+        if (ObjectUtils.isEmpty(key)) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        return mapper.selectByPrimaryKey(key);
+    }
+
+    @Override
+    public T selectOne(T record) {
+        if (record == null) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        return mapper.selectOne(record);
+    }
+
+    @Override
+    public T selectOneByExample(Object example) {
+        if (ObjectUtils.isEmpty(example)) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        return mapper.selectOneByExample(example);
+    }
+
+    @Override
+    public List<T> select(T record) {
+        if (record == null) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        return mapper.select(record);
     }
 
     @Override
@@ -51,42 +166,26 @@ public class BaseServiceImpl<T> implements BaseService<T> {
     }
 
     @Override
-    public T selectById(Object key) {
-        return mapper.selectByPrimaryKey(key);
-    }
-
-    @Override
-    public void insert(T entity) {
-        mapper.insert(entity);
-    }
-
-    @Override
-    public void insertByNotNull(T entity) {
-        mapper.insertSelective(entity);
-    }
-
-    @Override
-    public void deleteById(Object key) {
-        mapper.deleteByPrimaryKey(key);
-    }
-
-    @Override
-    public void deleteByIds(String ids) {
-        mapper.deleteByIds(ids);
-    }
-
-    @Override
-    public void updateById(T entity) {
-        mapper.updateByPrimaryKey(entity);
-    }
-
-    @Override
-    public void updateByIdNotNull(T entity) {
-        mapper.updateByPrimaryKeySelective(entity);
-    }
-
-    @Override
     public List<T> selectByExample(Object example) {
+        if (ObjectUtils.isEmpty(example)) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
         return mapper.selectByExample(example);
+    }
+
+    @Override
+    public List<T> selectByRowBounds(T record, RowBounds rowBounds) {
+        if (record == null || rowBounds == null) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        return mapper.selectByRowBounds(record, rowBounds);
+    }
+
+    @Override
+    public List<T> selectByExampleAndRowBounds(Object example, RowBounds rowBounds) {
+        if (ObjectUtils.isEmpty(example) || rowBounds == null) {
+            throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
+        }
+        return mapper.selectByExampleAndRowBounds(example, rowBounds);
     }
 }

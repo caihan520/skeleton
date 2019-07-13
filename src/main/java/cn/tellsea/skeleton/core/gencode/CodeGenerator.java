@@ -47,7 +47,7 @@ public class CodeGenerator {
      * @param args
      */
     public static void main(String[] args) {
-        genCode("user_info");
+        genCode("user");
     }
 
     /**

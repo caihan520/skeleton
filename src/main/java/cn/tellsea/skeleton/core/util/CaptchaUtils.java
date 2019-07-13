@@ -1,4 +1,4 @@
-package cn.tellsea.skeleton.business.util;
+package cn.tellsea.skeleton.core.util;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

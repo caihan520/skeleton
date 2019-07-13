@@ -2,8 +2,8 @@ package cn.tellsea.skeleton.business.controller;
 
 import cn.tellsea.skeleton.business.entity.LoginLog;
 import cn.tellsea.skeleton.business.service.LoginLogService;
-import cn.tellsea.skeleton.business.util.AddressUtils;
-import cn.tellsea.skeleton.business.util.IpUtils;
+import cn.tellsea.skeleton.core.util.AddressUtils;
+import cn.tellsea.skeleton.core.util.IpUtils;
 import cn.tellsea.skeleton.core.common.dto.ResponseResult;
 import cn.tellsea.skeleton.core.common.enums.StatusEnums;
 import eu.bitwalker.useragentutils.Browser;

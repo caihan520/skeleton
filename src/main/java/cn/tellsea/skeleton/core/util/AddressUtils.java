@@ -1,4 +1,4 @@
-package cn.tellsea.skeleton.business.util;
+package cn.tellsea.skeleton.core.util;
 
 import org.apache.commons.io.FileUtils;
 import org.lionsoul.ip2region.DataBlock;

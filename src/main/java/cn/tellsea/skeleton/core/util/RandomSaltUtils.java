@@ -1,4 +1,4 @@
-package cn.tellsea.skeleton.business.util;
+package cn.tellsea.skeleton.core.util;
 
 import org.apache.commons.lang3.RandomStringUtils;
 

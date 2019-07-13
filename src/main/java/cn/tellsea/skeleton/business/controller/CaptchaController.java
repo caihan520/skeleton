@@ -1,6 +1,6 @@
 package cn.tellsea.skeleton.business.controller;
 
-import cn.tellsea.skeleton.business.util.CaptchaUtils;
+import cn.tellsea.skeleton.core.util.CaptchaUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

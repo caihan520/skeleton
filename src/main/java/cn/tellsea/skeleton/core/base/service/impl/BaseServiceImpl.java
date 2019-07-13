@@ -22,14 +22,14 @@ import java.util.List;
 public class BaseServiceImpl<T> implements BaseService<T> {
 
     @Autowired
-    private MyMapper<T> mapper;
+    public MyMapper<T> baseMapper;
 
     @Override
     public void insert(T record) {
         if (record == null) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        mapper.insert(record);
+        baseMapper.insert(record);
     }
 
     @Override
@@ -37,7 +37,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (record == null) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        mapper.insertSelective(record);
+        baseMapper.insertSelective(record);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (CollectionUtils.isEmpty(recordList)) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        mapper.insertList(recordList);
+        baseMapper.insertList(recordList);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (record == null) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        mapper.insertUseGeneratedKeys(record);
+        baseMapper.insertUseGeneratedKeys(record);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (record == null) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        mapper.delete(record);
+        baseMapper.delete(record);
     }
 
     @Override
@@ -69,7 +69,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (ObjectUtils.isEmpty(key)) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        mapper.deleteByPrimaryKey(key);
+        baseMapper.deleteByPrimaryKey(key);
     }
 
     @Override
@@ -77,7 +77,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (StringUtils.isEmpty(ids)) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        mapper.deleteByIds(ids);
+        baseMapper.deleteByIds(ids);
     }
 
     @Override
@@ -85,7 +85,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (ObjectUtils.isEmpty(example)) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        mapper.deleteByExample(example);
+        baseMapper.deleteByExample(example);
     }
 
     @Override
@@ -93,7 +93,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (record == null) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        mapper.updateByPrimaryKey(record);
+        baseMapper.updateByPrimaryKey(record);
     }
 
     @Override
@@ -101,7 +101,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (record == null) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        mapper.updateByPrimaryKeySelective(record);
+        baseMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override
@@ -109,7 +109,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (record == null || ObjectUtils.isEmpty(example)) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        mapper.updateByExample(record, example);
+        baseMapper.updateByExample(record, example);
     }
 
     @Override
@@ -117,7 +117,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (record == null || ObjectUtils.isEmpty(example)) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        mapper.updateByExampleSelective(record, example);
+        baseMapper.updateByExampleSelective(record, example);
     }
 
     @Override
@@ -125,7 +125,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (CollectionUtils.isEmpty(recordList)) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        mapper.updateBatchByPrimaryKeySelective(recordList);
+        baseMapper.updateBatchByPrimaryKeySelective(recordList);
     }
 
     @Override
@@ -133,7 +133,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (ObjectUtils.isEmpty(key)) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        return mapper.selectByPrimaryKey(key);
+        return baseMapper.selectByPrimaryKey(key);
     }
 
     @Override
@@ -141,7 +141,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (record == null) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        return mapper.selectOne(record);
+        return baseMapper.selectOne(record);
     }
 
     @Override
@@ -149,7 +149,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (ObjectUtils.isEmpty(example)) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        return mapper.selectOneByExample(example);
+        return baseMapper.selectOneByExample(example);
     }
 
     @Override
@@ -157,12 +157,12 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (record == null) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        return mapper.select(record);
+        return baseMapper.select(record);
     }
 
     @Override
     public List<T> selectAll() {
-        return mapper.selectAll();
+        return baseMapper.selectAll();
     }
 
     @Override
@@ -170,7 +170,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (ObjectUtils.isEmpty(example)) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        return mapper.selectByExample(example);
+        return baseMapper.selectByExample(example);
     }
 
     @Override
@@ -178,7 +178,7 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (record == null || rowBounds == null) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        return mapper.selectByRowBounds(record, rowBounds);
+        return baseMapper.selectByRowBounds(record, rowBounds);
     }
 
     @Override
@@ -186,6 +186,6 @@ public class BaseServiceImpl<T> implements BaseService<T> {
         if (ObjectUtils.isEmpty(example) || rowBounds == null) {
             throw new SkeletonException(StatusEnums.PARAM_NOT_NULL);
         }
-        return mapper.selectByExampleAndRowBounds(example, rowBounds);
+        return baseMapper.selectByExampleAndRowBounds(example, rowBounds);
     }
 }

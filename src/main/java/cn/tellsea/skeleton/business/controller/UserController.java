@@ -6,11 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
-* User 控制层
-*
-* @author Tellsea
-* @Description Created on 2019/07/13
-*/
+ * User 控制层
+ *
+ * @author Tellsea
+ * @Description Created on 2019/07/13
+ */
 @Controller
 @RequestMapping("/user")
 public class UserController extends BaseController<User> {

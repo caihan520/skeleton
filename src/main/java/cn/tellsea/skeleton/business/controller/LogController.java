@@ -6,11 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
-* Log 控制层
-*
-* @author Tellsea
-* @Description Created on 2019/07/13
-*/
+ * Log 控制层
+ *
+ * @author Tellsea
+ * @Description Created on 2019/07/13
+ */
 @Controller
 @RequestMapping("/log")
 public class LogController extends BaseController<Log> {

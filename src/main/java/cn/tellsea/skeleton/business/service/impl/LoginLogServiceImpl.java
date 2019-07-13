@@ -6,11 +6,11 @@ import cn.tellsea.skeleton.business.service.LoginLogService;
 import org.springframework.stereotype.Service;
 
 /**
-* LoginLog 接口实现类
-*
-* @author Tellsea
-* @Description Created on 2019/07/13
-*/
+ * LoginLog 接口实现类
+ *
+ * @author Tellsea
+ * @Description Created on 2019/07/13
+ */
 @Service
 public class LoginLogServiceImpl extends BaseServiceImpl<LoginLog> implements LoginLogService {
 

@@ -6,11 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
-* Resource 控制层
-*
-* @author Tellsea
-* @Description Created on 2019/07/13
-*/
+ * Resource 控制层
+ *
+ * @author Tellsea
+ * @Description Created on 2019/07/13
+ */
 @Controller
 @RequestMapping("/resource")
 public class ResourceController extends BaseController<Resource> {

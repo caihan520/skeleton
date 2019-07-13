@@ -11,4 +11,11 @@
     <result column="status" jdbcType="BIT" property="status" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
   </resultMap>
+
+  <select id="listUserRole" resultMap="BaseResultMap">
+    SELECT r.`name` FROM `user` u
+    LEFT JOIN user_role ur ON u.id = ur.user_id
+    LEFT JOIN role r ON ur.role_id = r.id
+    WHERE u.id = #{id}
+  </select>
 </mapper>

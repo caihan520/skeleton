@@ -6,11 +6,11 @@ import ${basePackageService}.${modelNameUpperCamel}Service;
 import org.springframework.stereotype.Service;
 
 /**
-* ${modelNameUpperCamel} 接口实现类
-*
-* @author ${author}
-* @Description Created on ${date}
-*/
+ * ${modelNameUpperCamel} 接口实现类
+ *
+ * @author ${author}
+ * @Description Created on ${date}
+ */
 @Service
 public class ${modelNameUpperCamel}ServiceImpl extends BaseServiceImpl<${modelNameUpperCamel}> implements ${modelNameUpperCamel}Service {
 

@@ -10,7 +10,8 @@ public class CodeGenerator {
 
     public static void main(String[] args) {
 //        genCodeByAll();
-        genCodeByOne("dept");
+//        genCodeByOne("dept");
+        genCodeByMore("user_role", "role_resource");
     }
 
     /**

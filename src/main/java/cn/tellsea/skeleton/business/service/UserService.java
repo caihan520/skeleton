@@ -11,4 +11,11 @@ import cn.tellsea.skeleton.business.entity.User;
  */
 public interface UserService extends BaseService<User> {
 
+    /**
+     * 根据用户名查询用户
+     *
+     * @param username
+     * @return
+     */
+    User getUserByUsername(String username);
 }

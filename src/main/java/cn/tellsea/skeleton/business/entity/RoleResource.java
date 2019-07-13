@@ -20,12 +20,13 @@ public class RoleResource implements Serializable {
     /**
      * 角色ID
      */
+    @Id
     @Column(name = "role_id")
     private Long roleId;
 
     /**
      * 菜单/按钮ID
      */
-    @Column(name = "menu_id")
-    private Long menuId;
+    @Column(name = "resource_id")
+    private Long resourceId;
 }

@@ -81,7 +81,7 @@ public class UserRealm extends AuthorizingRealm {
     }
 
     /**
-     * 自定义方法：清除所有的  认证缓存  和 授权缓存
+     * 自定义方法：清除所有的 认证缓存 和 授权缓存
      */
     public void clearAllCache() {
         clearAllCachedAuthenticationInfo();
